@@ -1,0 +1,126 @@
+// Quiz logic: instant check, per-subject & total scoring, reset
+document.addEventListener('DOMContentLoaded', () => {
+  // Scores
+  const subjectTotals = { physics: 8, math: 8, biology: 9 };
+  const subjectScores = { physics: 0, math: 0, biology: 0 };
+  const answered = new Set();
+
+  // UI elements
+  const scorePhysics = document.getElementById('score-physics');
+  const scoreMath = document.getElementById('score-math');
+  const scoreBiology = document.getElementById('score-biology');
+  const totalEl = document.getElementById('total');
+  const resetBtn = document.getElementById('reset');
+
+  // Update score displays
+  function updateScores() {
+    scorePhysics.textContent = `Physics: ${subjectScores.physics} / ${subjectTotals.physics}`;
+    scoreMath.textContent = `Math: ${subjectScores.math} / ${subjectTotals.math}`;
+    scoreBiology.textContent = `Biology: ${subjectScores.biology} / ${subjectTotals.biology}`;
+    const totalCorrect = subjectScores.physics + subjectScores.math + subjectScores.biology;
+    const totalQuestions = subjectTotals.physics + subjectTotals.math + subjectTotals.biology;
+    totalEl.textContent = `Total: ${totalCorrect} / ${totalQuestions}`;
+  }
+
+  updateScores();
+
+  // Handle clicks for all option buttons
+  document.querySelectorAll('.question').forEach(question => {
+    const correct = question.dataset.answer; // "A","B","C","D"
+    const qid = question.id;
+
+    question.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (answered.has(qid)) return; // prevent re-answering
+        const choice = btn.dataset.choice;
+        const fb = question.querySelector('.feedback');
+        const subject = question.dataset.subject;
+
+        // Mark answered
+        answered.add(qid);
+
+        // Visual: mark chosen button
+        btn.style.borderColor = '#fff';
+        btn.style.boxShadow = '0 4px 10px rgba(0,0,0,0.4)';
+
+        // Check correctness
+        if (choice === correct) {
+          fb.classList.add('correct');
+          fb.textContent = `Correct. (${choice})`;
+          subjectScores[subject] = (subjectScores[subject] || 0) + 1;
+        } else {
+          fb.classList.add('wrong');
+          // Find text for correct option to show to learner
+          const correctBtn = Array.from(question.querySelectorAll('button')).find(b => b.dataset.choice === correct);
+          const correctText = correctBtn ? correctBtn.textContent.replace(/^[A-D]\.\s*/, '') : '';
+          fb.textContent = `Incorrect. Correct answer: ${correct} — ${correctText}`;
+        }
+
+        updateScores();
+      });
+    });
+  });
+
+  // Reset: clear answers and scores
+  resetBtn.addEventListener('click', () => {
+    answered.clear();
+    subjectScores.physics = 0;
+    subjectScores.math = 0;
+    subjectScores.biology = 0;
+    updateScores();
+
+    // clear UI feedback and button styles
+    document.querySelectorAll('.question').forEach(q => {
+      q.querySelectorAll('button').forEach(b => {
+        b.style.borderColor = '';
+        b.style.boxShadow = '';
+      });
+      const fb = q.querySelector('.feedback');
+      fb.classList.remove('correct','wrong');
+      fb.textContent = '';
+    });
+
+    // scroll top to header
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Optional: keyboard accessibility (A-D keys)
+  document.addEventListener('keydown', (e) => {
+    // ignore if focused in input elements
+    if (['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+    const key = e.key.toUpperCase();
+    if (!['A','B','C','D'].includes(key)) return;
+
+    // Find first unanswered question in view and choose that option
+    const unansweredQ = Array.from(document.querySelectorAll('.question')).find(q => !answered.has(q.id));
+    if (!unansweredQ) return;
+    const optionBtn = Array.from(unansweredQ.querySelectorAll('button')).find(b => b.dataset.choice === key);
+    if (optionBtn) optionBtn.click();
+  });
+
+  // --- particles (tsParticles) config below ---
+  if (window.tsParticles) {
+    tsParticles.load("tsparticles", {
+      background: { color: { value: "#0b0b0b" } },
+      fpsLimit: 60,
+      particles: {
+        number: { value: 70, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffd700" },
+        shape: { type: "circle" },
+        opacity: { value: 0.6, random: false },
+        size: { value: { min: 1, max: 4 } },
+        links: { enable: true, distance: 130, color: "#ffd700", opacity: 0.25, width: 1 },
+        move: { enable: true, speed: 2, outModes: { default: "out" } }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: { repulse: { distance: 100 }, push: { quantity: 4 } }
+      },
+      detectRetina: true
+    });
+  } // end tsParticles
+});
