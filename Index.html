@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nyeburu Online School — Simulations & Quiz (TIE style)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Particles background -->
+  <div id="tsparticles"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <img class="logo" src="https://i.ibb.co/Kj977W8q/file-0000000047386230a8dd1f7e3a6d39bd.png"
+           alt="Nyeburu Online School Logo">
+      <div class="title-block">
+        <h1>Nyeburu Online School</h1>
+        <p class="subtitle">Director General: Wami Mbaga | WhatsApp:
+          <a href="https://wa.me/255622561895" target="_blank" rel="noopener">+255 622 561 895</a>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Physics -->
+    <section class="subject" id="physics">
+      <h2>Physics — Nyeburu Simulations</h2>
+      <div class="sim-wrap">
+        <h3>Density (PhET)</h3>
+        <iframe class="sim-iframe"
+                src="https://phet.colorado.edu/sims/html/density/latest/density_en_iframe.html"
+                title="PhET Density Simulation"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-modals"
+                loading="lazy"></iframe>
+      </div>
+
+      <div class="quiz-block">
+        <h3>Physics Questions — answer then check</h3>
+        <div class="score-line">
+          <span id="score-physics">Physics: 0 / 8</span>
+        </div>
+
+        <!-- Physics questions (8) -->
+        <div class="question" data-subject="physics" data-answer="B" id="p1">
+          <div class="q-stem">1. Which formula defines density?</div>
+          <div class="options">
+            <button data-choice="A">A. Mass × Volume</button>
+            <button data-choice="B">B. Mass ÷ Volume</button>
+            <button data-choice="C">C. Volume ÷ Mass</button>
+            <button data-choice="D">D. Mass + Volume</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="physics" data-answer="C" id="p2">
+          <div class="q-stem">2. When mass and volume both double, density:</div>
+          <div class="options">
+            <button data-choice="A">A. Doubles</button>
+            <button data-choice="B">B. Halves</button>
+            <button data-choice="C">C. Stays the same</button>
+            <button data-choice="D">D. Becomes zero</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="physics" data-answer="A" id="p3">
+          <div class="q-stem">3. If an object floats in water it has density:</div>
+          <div class="options">
+            <button data-choice="A">A. Less than water</button>
+            <button data-choice="B">B. Greater than water</button>
+            <button data-choice="C">C. Equal to water</button>
+            <button data-choice="D">D. Zero</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="physics" data-answer="C" id="p4">
+          <div class="q-stem">4. Which is a correct unit for density?</div>
+          <div class="options">
+            <button data-choice="A">A. Newton (N)</button>
+            <button data-choice="B">B. Second (s)</button>
+            <button data-choice="C">C. g/cm³</button>
+            <button data-choice="D">D. Metre (m)</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="physics" data-answer="D" id="p5">
+          <div class="q-stem">5. A wooden block (density 0.6 g/cm³) is placed in water. The block will:</div>
+          <div class="options">
+            <button data-choice="A">A. Sink immediately</button>
+            <button data-choice="B">B. Dissolve</button>
+            <button data-choice="C">C. Hover at mid-depth</button>
+            <button data-choice="D">D. Float</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="physics" data-answer="A" id="p6">
+          <div class="q-stem">6. Which instrument measures mass most directly?</div>
+          <div class="options">
+            <button data-choice="A">A. Beam balance</button>
+            <button data-choice="B">B. Ruler</button>
+            <button data-choice="C">C. Stopwatch</button>
+            <button data-choice="D">D. Thermometer</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="physics" data-answer="B" id="p7">
+          <div class="q-stem">7. If an object has mass 200 g and volume 50 cm³, its density is:</div>
+          <div class="options">
+            <button data-choice="A">A. 100 g/cm³</button>
+            <button data-choice="B">B. 4 g/cm³</button>
+            <button data-choice="C">C. 0.25 g/cm³</button>
+            <button data-choice="D">D. 250 g/cm³</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="physics" data-answer="C" id="p8">
+          <div class="q-stem">8. Which change will increase an object's density?</div>
+          <div class="options">
+            <button data-choice="A">A. Increase volume only</button>
+            <button data-choice="B">B. Decrease mass only</button>
+            <button data-choice="C">C. Increase mass while volume constant</button>
+            <button data-choice="D">D. Increase both mass and volume equally</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mathematics -->
+    <section class="subject" id="math">
+      <h2>Mathematics — Nyeburu Simulations</h2>
+      <div class="sim-wrap">
+        <h3>Area Builder (PhET)</h3>
+        <iframe class="sim-iframe"
+                src="https://phet.colorado.edu/sims/html/area-builder/latest/area-builder_en_iframe.html"
+                title="PhET Area Builder"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-modals"
+                loading="lazy"></iframe>
+      </div>
+
+      <div class="quiz-block">
+        <h3>Mathematics Questions — answer then check</h3>
+        <div class="score-line">
+          <span id="score-math">Math: 0 / 8</span>
+        </div>
+
+        <!-- Math questions (8) -->
+        <div class="question" data-subject="math" data-answer="C" id="m1">
+          <div class="q-stem">1. What is 15% of 200?</div>
+          <div class="options">
+            <button data-choice="A">A. 20</button>
+            <button data-choice="B">B. 25</button>
+            <button data-choice="C">C. 30</button>
+            <button data-choice="D">D. 35</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="math" data-answer="B" id="m2">
+          <div class="q-stem">2. Solve: 3x + 5 = 20. x = ?</div>
+          <div class="options">
+            <button data-choice="A">A. 3</button>
+            <button data-choice="B">B. 5</button>
+            <button data-choice="C">C. 6</button>
+            <button data-choice="D">D. 15</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="math" data-answer="A" id="m3">
+          <div class="q-stem">3. Which is an even number?</div>
+          <div class="options">
+            <button data-choice="A">A. 84</button>
+            <button data-choice="B">B. 33</button>
+            <button data-choice="C">C. 57</button>
+            <button data-choice="D">D. 99</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="math" data-answer="D" id="m4">
+          <div class="q-stem">4. The perimeter of a square with side 7 cm is:</div>
+          <div class="options">
+            <button data-choice="A">A. 14 cm</button>
+            <button data-choice="B">B. 21 cm</button>
+            <button data-choice="C">C. 28 cm</button>
+            <button data-choice="D">D. 28 cm (check choices)</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="math" data-answer="B" id="m5">
+          <div class="q-stem">5. Which fraction is equivalent to 1/2?</div>
+          <div class="options">
+            <button data-choice="A">A. 2/5</button>
+            <button data-choice="B">B. 3/6</button>
+            <button data-choice="C">C. 4/8</button>
+            <button data-choice="D">D. Both B and C</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="math" data-answer="D" id="m6">
+          <div class="q-stem">6. 7 × 8 = ?</div>
+          <div class="options">
+            <button data-choice="A">A. 48</button>
+            <button data-choice="B">B. 54</button>
+            <button data-choice="C">C. 56</button>
+            <button data-choice="D">D. 56</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="math" data-answer="A" id="m7">
+          <div class="q-stem">7. Which pair is a Pythagorean triple?</div>
+          <div class="options">
+            <button data-choice="A">A. 3, 4, 5</button>
+            <button data-choice="B">B. 2, 3, 4</button>
+            <button data-choice="C">C. 5, 6, 10</button>
+            <button data-choice="D">D. 1, 1, 3</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="math" data-answer="C" id="m8">
+          <div class="q-stem">8. What is the mean of {2, 4, 6, 8}?</div>
+          <div class="options">
+            <button data-choice="A">A. 4</button>
+            <button data-choice="B">B. 5</button>
+            <button data-choice="C">C. 5</button>
+            <button data-choice="D">D. 6</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Biology -->
+    <section class="subject" id="biology">
+      <h2>Biology — Nyeburu Simulations</h2>
+      <div class="sim-wrap">
+        <h3>Natural Selection (PhET)</h3>
+        <iframe class="sim-iframe"
+                src="https://phet.colorado.edu/sims/html/natural-selection/latest/natural-selection_en_iframe.html"
+                title="PhET Natural Selection"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-modals"
+                loading="lazy"></iframe>
+      </div>
+
+      <div class="quiz-block">
+        <h3>Biology Questions — answer then check</h3>
+        <div class="score-line">
+          <span id="score-biology">Biology: 0 / 9</span>
+        </div>
+
+        <!-- Biology questions (9) -->
+        <div class="question" data-subject="biology" data-answer="A" id="b1">
+          <div class="q-stem">1. Which is a living thing?</div>
+          <div class="options">
+            <button data-choice="A">A. A plant</button>
+            <button data-choice="B">B. A rock</button>
+            <button data-choice="C">C. Water</button>
+            <button data-choice="D">D. Air</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="biology" data-answer="C" id="b2">
+          <div class="q-stem">2. Plants make food by the process called:</div>
+          <div class="options">
+            <button data-choice="A">A. Respiration</button>
+            <button data-choice="B">B. Digestion</button>
+            <button data-choice="C">C. Photosynthesis</button>
+            <button data-choice="D">D. Transpiration</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="biology" data-answer="B" id="b3">
+          <div class="q-stem">3. Which organ pumps blood?</div>
+          <div class="options">
+            <button data-choice="A">A. Lungs</button>
+            <button data-choice="B">B. Heart</button>
+            <button data-choice="C">C. Kidney</button>
+            <button data-choice="D">D. Liver</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="biology" data-answer="D" id="b4">
+          <div class="q-stem">4. A food chain shows the flow of:</div>
+          <div class="options">
+            <button data-choice="A">A. Air</button>
+            <button data-choice="B">B. Water</button>
+            <button data-choice="C">C. Soil</button>
+            <button data-choice="D">D. Energy</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="biology" data-answer="A" id="b5">
+          <div class="q-stem">5. Leaves are mainly used for:</div>
+          <div class="options">
+            <button data-choice="A">A. Photosynthesis</button>
+            <button data-choice="B">B. Support</button>
+            <button data-choice="C">C. Reproduction</button>
+            <button data-choice="D">D. Storage of food</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="biology" data-answer="B" id="b6">
+          <div class="q-stem">6. Which shows inheritance of traits?</div>
+          <div class="options">
+            <button data-choice="A">A. Learning a skill</button>
+            <button data-choice="B">B. Eye colour from parents</button>
+            <button data-choice="C">C. Cutting hair</button>
+            <button data-choice="D">D. Broken bone healing</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="biology" data-answer="C" id="b7">
+          <div class="q-stem">7. What gas do plants release during photosynthesis?</div>
+          <div class="options">
+            <button data-choice="A">A. Carbon dioxide</button>
+            <button data-choice="B">B. Nitrogen</button>
+            <button data-choice="C">C. Oxygen</button>
+            <button data-choice="D">D. Hydrogen</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="biology" data-answer="D" id="b8">
+          <div class="q-stem">8. Which is a simple food material for plants?</div>
+          <div class="options">
+            <button data-choice="A">A. Starch</button>
+            <button data-choice="B">B. Protein</button>
+            <button data-choice="C">C. Fat</button>
+            <button data-choice="D">D. Glucose</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+
+        <div class="question" data-subject="biology" data-answer="B" id="b9">
+          <div class="q-stem">9. Which part of a seed becomes the root of a new plant?</div>
+          <div class="options">
+            <button data-choice="A">A. Cotyledon</button>
+            <button data-choice="B">B. Radicle</button>
+            <button data-choice="C">C. Plumule</button>
+            <button data-choice="D">D. Seed coat</button>
+          </div>
+          <div class="feedback"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final score -->
+    <section class="final-score">
+      <h3>Total Score</h3>
+      <div id="total">Total: 0 / 25</div>
+      <button id="reset">Reset Answers</button>
+    </section>
+
+    <footer class="site-footer">
+      <small>Nyeburu Online School — TIE-style quizzes • For learning use only</small>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+  </html>
